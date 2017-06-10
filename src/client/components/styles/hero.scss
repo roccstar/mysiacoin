@@ -1,0 +1,80 @@
+.hero-container {
+    padding: 30px 0;
+    position: relative;
+    min-height: calc(100% - 56px);
+    background-color: #000;
+    color: #fff;
+    z-index: 0;
+    vertical-align: top;
+    @media screen and (max-width: 640px) {
+        padding-top: 16px;
+    }
+
+    &:before {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: url('/img/hero-min.png') no-repeat right top;
+        background-size: cover;
+        z-index: 0;
+    }
+
+    &:after {
+        content: "";
+        width: 102%;
+        height: 100px;
+        background: red;
+        position: fixed;
+        bottom: 0;
+        z-index: 0;
+        background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%);
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#00ffffff', endColorstr='#000000',GradientType=0 );
+    }
+
+    .container {
+        padding-bottom: 30px;
+    }
+
+    .donate-card {
+        img {
+            height: 128px;
+            width: auto;
+        }
+
+        p {
+            padding: 0 8px;
+        }
+
+        span {
+            display: block;
+            margin: 10px;
+        }
+
+        .qrcode, .logo {
+            display: inline-block;
+        }
+
+        .address {
+            display: block;
+        }
+
+        .column {
+            width: calc(50% - 40px);
+            margin: 10px;
+            border: 1px solid rgba(0,0,0,0.2);
+            border-radius: 3px;
+            font-size: 11px;
+            font-family: monospace;
+            word-wrap: break-word;
+            word-break: break-all;
+
+            @media screen and (max-width: 640px) {
+                width: calc(100% - 20px);
+            }
+        }
+    }
+}
