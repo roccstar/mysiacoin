@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "build": "./node_modules/webpack/bin/webpack.js --progress --colors",
-    "watch": "./node_modules/webpack/bin/webpack.js  --progress --colors --watch",
+    "build": "./node_modules/.bin/webpack --progress --colors",
+    "watch": "./node_modules/.bin/webpack  --progress --colors --watch",
     "server": "nodemon app.js localhost 3000"
   },
   "dependencies": {
