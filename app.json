@@ -1,8 +1,7 @@
 {
   "scripts": {
     "dokku": {
-      "predeploy": "npm run install && npm run build",
-      "postdeploy": "curl https://some.external.api.service.com/deployment?state=success"
+      "predeploy": "chmod a+x ./bin/sia-coldstorage-json && npm install && npm run build"
     }
   }
 }
