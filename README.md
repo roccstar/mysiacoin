@@ -8,7 +8,7 @@ _(NODE: Make sure to download and store your wallet somewhere safe! There is no 
 
 ## Reporting issues
 
-https://github.com/roccstar/sia-coldstorage-json/issues
+https://github.com/roccstar/mysiacoin/issues
 
 ## Donate
 
