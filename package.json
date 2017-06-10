@@ -1,11 +1,11 @@
 {
   "name": "mysiacoin.com",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "build": "webpack  --progress --colors",
-    "watch": "webpack  --progress --colors --watch",
+    "build": "./node_modules/webpack/bin/webpack.js --progress --colors",
+    "watch": "./node_modules/webpack/bin/webpack.js  --progress --colors --watch",
     "server": "nodemon app.js localhost 3000"
   },
   "dependencies": {
