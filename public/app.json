@@ -1,7 +1,0 @@
-{
-  "scripts": {
-    "dokku": {
-      "predeploy": "chmod a+x ./bin/sia-coldstorage-json && npm install && npm run build"
-    }
-  }
-}
