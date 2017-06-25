@@ -14878,8 +14878,6 @@ var Hero = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             // grab seed and addresses from wallet
             var seed = this.props.wallet.Seed || '';
             var addresses = this.props.wallet.Addresses ? this.props.wallet.Addresses.map(function (addy) {
@@ -14957,7 +14955,7 @@ var Hero = function (_React$Component) {
                             { className: 'column' },
                             _react2.default.createElement(
                                 'h2',
-                                { 'aria-label': 'Your 20 Siacoin address' },
+                                { 'aria-label': 'Your 20 Siacoin addresses' },
                                 'Public Wallet Addresses'
                             ),
                             _react2.default.createElement(
@@ -14971,45 +14969,6 @@ var Hero = function (_React$Component) {
                                 )
                             )
                         )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'container', id: 'donate' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'card donate-card' },
-                        _react2.default.createElement(
-                            'h2',
-                            null,
-                            'Help keep this site alive!'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'This site runs solely off of donations and caffeine. If you want to help support the site or buy us coffee please donate to one of the addresses below. Thanks in advance!'
-                        ),
-                        this.props.donate.map(function (coin) {
-                            return _react2.default.createElement(
-                                'div',
-                                { className: 'column', key: coin.name },
-                                _react2.default.createElement(
-                                    'span',
-                                    { className: 'logo' },
-                                    _react2.default.createElement('img', { src: coin.image, alt: coin.name })
-                                ),
-                                _react2.default.createElement(
-                                    'span',
-                                    { className: 'qrcode' },
-                                    _react2.default.createElement('img', { src: 'data:image/svg+xml;base64,' + btoa(_this2.generateQR(coin.address)), alt: coin.address })
-                                ),
-                                _react2.default.createElement(
-                                    'span',
-                                    { className: 'address' },
-                                    coin.address
-                                )
-                            );
-                        })
                     )
                 )
             );
@@ -15062,12 +15021,25 @@ var Toolbar = function (_React$Component) {
     }
 
     /**
-     * render
-     * @return {ReactElement} template markup
+     * Generate Shifty button popup
      */
 
 
     _createClass(Toolbar, [{
+        key: 'donate',
+        value: function donate(e) {
+            e.preventDefault();
+            var link = 'https://shapeshift.io/shifty.html?destination=4f61cdd4820023a2a9d7c2997324934fcc03cc5a58cd3cf0164b40d8371ff1f093690a93c706&output=SC&apiKey=4c118c51fc77bd9e75e679c23310c49627c4a2899afd5f22620b31d3ef9e025d344978d46db034586d3cf8536943c57a156adfc56fd453113c2da255c03db17d';
+            window.open(link, '1418115287605', 'width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=0,left=0,top=0');
+            return false;
+        }
+
+        /**
+         * render
+         * @return {ReactElement} template markup
+         */
+
+    }, {
         key: 'render',
         value: function render() {
             // cache 1hr and 24hr change rate
@@ -15095,7 +15067,9 @@ var Toolbar = function (_React$Component) {
                         { className: 'donate-button' },
                         _react2.default.createElement(
                             'a',
-                            { 'aria-label': 'Donate Siacoin and help keep the lights on!', href: '#donate' },
+                            { 'aria-label': 'Donate Siacoin and help keep the lights on!',
+                                href: '#donate',
+                                onClick: this.donate.bind(this) },
                             'Donate'
                         )
                     ),
@@ -15260,18 +15234,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 class Wallet {
     /**
-     * grab new generated wallet from api
+     * grab new generated wallet from clinet side script
      * @return {object} wallet json ({ Seed: 'xxxxx', Addresses: [ 'xxx','xxxx',... ]})
      */
     generate() {
-        return fetch('/api/v1/generate').then(resp => {
-            // return new wallet to user on 200 status
-            if(resp.status === 200) {
-                return resp.json().then(json => {
-                    return json;
-                });
-            }
-        });
+    	return window.SiacoinWalletGenerator ?
+            Promise.resolve(new SiacoinWalletGenerator).then(resp => {
+                return JSON.parse(resp.toString());
+            }) : Promise.resolve({});
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["default"] = Wallet;
