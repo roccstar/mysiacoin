@@ -107,32 +107,12 @@ export default class Hero extends React.Component {
                             </p>
                         </div>
                         <div className="column">
-                            <h2 aria-label="Your 20 Siacoin address">Public Wallet Addresses</h2>
+                            <h2 aria-label="Your 20 Siacoin addresses">Public Wallet Addresses</h2>
                             <p className="content"
                                 key={`addresses-${seed.replace(/\s/g, '-')}`}>
                                 <small>{addresses}</small>
                             </p>
                         </div>
-                    </div>
-                </div>
-                <div className="container" id="donate">
-                    <div className="card donate-card">
-                        <h2>Help keep this site alive!</h2>
-                        <p>This site runs solely off of donations and caffeine.
-                            If you want to help support the site or buy us coffee
-                            please donate to one of the addresses below.
-                            Thanks in advance!</p>
-                        {this.props.donate.map(coin => (
-                            <div className="column" key={coin.name}>
-                                <span className="logo">
-                                    <img src={coin.image} alt={coin.name} />
-                                </span>
-                                <span className="qrcode">
-                                    <img src={`data:image/svg+xml;base64,${btoa(this.generateQR(coin.address))}`} alt={coin.address} />
-                                </span>
-                                <span className="address">{coin.address}</span>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </div>
