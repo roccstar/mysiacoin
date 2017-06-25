@@ -5,17 +5,13 @@
  */
 export default class Wallet {
     /**
-     * grab new generated wallet from api
+     * grab new generated wallet from clinet side script
      * @return {object} wallet json ({ Seed: 'xxxxx', Addresses: [ 'xxx','xxxx',... ]})
      */
     generate() {
-        return fetch('/api/v1/generate').then(resp => {
-            // return new wallet to user on 200 status
-            if(resp.status === 200) {
-                return resp.json().then(json => {
-                    return json;
-                });
-            }
-        });
+    	return window.SiacoinWalletGenerator ?
+            Promise.resolve(new SiacoinWalletGenerator).then(resp => {
+                return JSON.parse(resp.toString());
+            }) : Promise.resolve({});
     }
 }
