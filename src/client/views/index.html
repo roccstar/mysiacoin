@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html style="background: #000;">
+<html style="background: #000; color: #fff;">
 <head>
+    <style type="text/css">
+        html:before {
+            content: "Loading...";
+            color: #fff;
+            font-size: 28px;
+            line-height: 1.42;
+            margin:20px 40px;
+            font-family: monospace;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
     <title>My Siacoin | Unofficial cold storage wallet generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta name="description" content="Easily generate and download a cold storage paper wallet for Siacoin." />
     <meta name="keywords" content="sia, siacoin, $sc, hodl, altcurrencies, bitcoin, ethereum , cryptocurrencies, blockchain, storage, amazon, s3, aws" />
     <meta name="author" content="Rocco Augusto (@therocco)" />
     <meta name="twitter:card" value="summary">
-    <meta name="twitter:creator" content="@therocco">
+    <meta name="twitter:creator" content="@mysiacoin">
     <meta property="og:title" content="My Siacoin | Unofficial cold storage wallet generator" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mysiacoin.com/" />
@@ -34,6 +48,7 @@
 </head>
 <body style="display:none; opacity:0;">
     <div id="content"></div>
-    <script src="/js/app.js"></script>
+    <script src="https://cdn.rawgit.com/roccstar/sia-coldstorage-json/master/build/sia-coldstorage-json.min.js"></script>
+    <script src="/js/app.js" defer></script>
 </body>
 </html>
