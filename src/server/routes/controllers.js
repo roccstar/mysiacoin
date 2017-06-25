@@ -25,26 +25,6 @@ exports.index = (req, res) => {
 };
 
 /**
- * /api/v1/generate
- * @return {object} wallet json data
- */
-exports.generate = (req, res) => {
-    //res.set('Content-Type', 'application/json');
-    exec('./bin/sia-coldstorage-json', (error, stdout, stderr) => {
-        if(error || stderr) {
-            logger.error('Encountered an error while generating a new wallet.');
-            res.send(500);
-        }
-
-        if(stdout) {
-            logger.debug('Convert stdout to JSON');
-            let lines = JSON.parse(stdout.toString().split('\n').join(''));
-            res.send(JSON.stringify(lines));
-        }
-    });
-};
-
-/**
  * /api/v1/ticker
  * @return {object} siacoin price object
  */
