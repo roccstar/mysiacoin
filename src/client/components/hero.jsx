@@ -43,7 +43,7 @@ export default class Hero extends React.Component {
             'Siacoin Public Addresses',
             '----',
             this.props.wallet.Addresses.join('\n')
-        ].join('\n');
+        ].join('\r\n');
 
 
         // set attributes for href, set downloaded filename, and hide

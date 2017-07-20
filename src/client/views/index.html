@@ -48,6 +48,23 @@
 </head>
 <body style="display:none; opacity:0;">
     <div id="content"></div>
+    <script type="text/javascript">
+        // check if serviceWorker exists
+        if('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+        else {
+            console.log('ServiceWorker is currently not available');
+        }
+    </script>
     <script src="https://cdn.rawgit.com/roccstar/sia-coldstorage-json/master/build/sia-coldstorage-json.min.js"></script>
     <script src="/js/app.js" defer></script>
 </body>
