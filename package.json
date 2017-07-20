@@ -3,10 +3,10 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node app.js",
+    "start": "NODE_ENV=production node app.js",
     "build": "./node_modules/.bin/webpack --progress --colors",
     "watch": "./node_modules/.bin/webpack  --progress --colors --watch",
-    "server": "nodemon app.js localhost 3000"
+    "server": "NODE_ENV=dev nodemon app.js"
   },
   "dependencies": {
     "babelify": "7.x.x",

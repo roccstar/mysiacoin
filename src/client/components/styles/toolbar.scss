@@ -34,7 +34,8 @@
 
     .donate-button {
         margin: 0 16px;
-        padding-top:11px;
+        padding-top: 11px;
+
         a {
             padding: 8px 16px;
             display: inline-block;
@@ -44,13 +45,14 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-
         @media (max-width: 600px) {
-            display: none;
-            opacity: 0;
+            display: inline-block;
+            opacity: 1;
         }
     }
-    .ticker, .donate-button {
+
+    .donate-button,
+    .ticker {
         float: right;
         font-size: 14px;
         line-height: 1.42;
@@ -128,6 +130,20 @@
                 &.small {
                     width: 20px;
                 }
+            }
+        }
+    }
+
+    .ticker {
+        @media (max-width: 600px) {
+            ul {
+                width: 150px;
+            }
+
+            li:nth-child(1),
+            li:nth-child(3) {
+                display: none;
+                opacity: 0;
             }
         }
     }
